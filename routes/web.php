@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('items.index');
 });
+
+Route::get('/create', [ItemController::class, 'create'])->name('items.create');
+Route::post('/', [ItemController::class, 'store'])->name('items.store');
+Route::get('/{item}/edit', [ItemController::class, 'edit'])->name('items.edit');
+Route::patch('/{item}', [ItemController::class, 'update'])->name('items.update');
+Route::delete('/{item}', [ItemController::class, 'destroy'])->name('items.destroy');

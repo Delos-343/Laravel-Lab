@@ -25,7 +25,7 @@ class ItemController extends Controller
             'item_type' => 'required',
             'item_condition' => 'required',
             'item_description' => 'required',
-            'comments' => 'string',
+            'comments' => 'nullable',
             'amount' => 'required|integer',
             'image_url' => 'nullable|url',
         ]);
